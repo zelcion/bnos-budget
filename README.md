@@ -1,21 +1,18 @@
-# Nano Budget
+# BNOS Budget
 
-Nano Budget is a Whatsapp-Interface personal budgeting tool that helps you track your expenses and manage your finances through simple WhatsApp messages. (first will be done through CLI, later through WhatsApp Business API or similar)
+BNOS Budget is a revolutionary acronym: Big Number On Screen. It is a idiotically simple budgeting app that actually helps you see your money with well, A Big Number On Screen. But instead with seeing your balance, you'll see how much you have available to spend, which is the most important number to see when it comes to budgeting.
 
-It is supposed to be as ligthweight as possible, allowing users to quickly log expenses, income, and view their budget summaries without needing to open a dedicated app.
+If you're looking into using this app, you're probably not that organized, and have a hard time with other complex budgeting apps with categories, advanced tracking through time, and all that stuff. BNOS Budget is for people who just want to know if they actually can spend money or not, without needing to open a calculator, or do some mental math.
+
+## Differences from other budgeting apps
+- Big number doesn't show your balance, it shows how much you have AVAILABLE to spend, according to your savings goal and planned expenses.
+- Two step monthly approach:
+  1. **Planning**: Set how much you want to save, planned income, and if you want, a few planned expenses.
+  2. **Tracking**: Add expenses as they come, and just look at the big number on the screen to see how you're doing.
+- No need to name your expenses, just pick an emoji (category) that represents the expense and the price.
+- New month, zero'ed balance. If you had some leftover money from the previous month, you should save it instead of spending it.
+- Cards tracking: Add a name, the monthly due date and the closing date. When adding an expense, you can assign it to a card. The big number knows in which month the expense will be due, and takes it into account when calculating how much you have available to spend. Don't abuse this though, you idiot.
 
 ## Features
-
-- Log expenses and income via WhatsApp messages. Detect expenditure categories automatically using NLP.
-- View Monthly budget summaries and reports.
-- Create buckets of expenditure (e.g., Food, Transport, Entertainment) and assign maximum budgets to each.
-- Receive notifications when approaching budget limits.
-- Set saving goals.
-- Set channels for transactions (Credit card 1, Debit card 2, Direct transfers, etc.) and set limits for each channel.
-
-## Possible Feature Upgrades
-
-- Integrate with bank APIs to automatically fetch transactions. (OpenFinance - Brazilian API for financial data)
-- Support for multiple currencies and exchange rates.
-- Data visualization through charts and graphs.
-- Support Static assets (e.g., property, stocks, Bitcoin) and track their value, and their amount over time.
+- Big number on screen - Your actual unreserved, available funds to spend.
+- Compare monthly big numbers, and goals, BNOS style - last month you had X and succeeded in your saving goal, this month you have Y and it's looking good, keep it up!
