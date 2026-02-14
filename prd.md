@@ -25,7 +25,7 @@ BNOS Budget = Big Number On Screen. An idiotically simple budgeting app for peop
   - Yellow: Careful now
   - Red: Really low
   - Purple: Under $0 but still within your savings buffer
-  - Dark Purple: You're actually broke
+  - Dark Purple: You're actually broke and in debt this month
 
 ### 2. Quick Expense Entry (This Must Be FAST)
 - 6 floating emoji buttons (your recent expenses)
@@ -92,7 +92,7 @@ Users forget which card they used. Let them track it:
 ## Technical Approach
 
 - **Mobile first, mobile only** - No desktop, no responsive design for validation
-- **React Native** - Quick iteration, test on iOS + Android
+- **React Native** - Quick iteration, test on primarily Android, then iOS
 - **NativeWind** - Tailwind for React Native
 - **Zustand** - Lightweight (2KB) state management, no boilerplate bullshit
 - **In-memory data for MVP** - No database until we validate the interactions
