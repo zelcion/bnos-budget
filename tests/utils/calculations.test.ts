@@ -6,30 +6,30 @@ const JAN_2025: Month = { year: 2025, month: 1 };
 describe("calculateAvailable", () => {
   it("returns total income when no goals or expenses", () => {
     const incomes: Income[] = [
-      { id: "1", emoji: "💰", amount: 3000, date: "2025-01-01" },
+      { id: "1", emoji: "💰", amount: 3000, date: "2025-01-01T12:00:00" },
     ];
     expect(calculateAvailable(incomes, [], [], JAN_2025)).toBe(3000);
   });
 
   it("subtracts goals and expenses from income", () => {
     const incomes: Income[] = [
-      { id: "1", emoji: "💰", amount: 3000, date: "2025-01-01" },
+      { id: "1", emoji: "💰", amount: 3000, date: "2025-01-01T12:00:00" },
     ];
     const goals: Goal[] = [
       { id: "1", name: "Savings", amount: 500, color: "#000" },
     ];
     const expenses: Expense[] = [
-      { id: "1", emoji: "🍔", amount: 100, date: "2025-01-15" },
+      { id: "1", emoji: "🍔", amount: 100, date: "2025-01-15T12:00:00" },
     ];
     expect(calculateAvailable(incomes, goals, expenses, JAN_2025)).toBe(2400);
   });
 
   it("returns negative when overspent", () => {
     const incomes: Income[] = [
-      { id: "1", emoji: "💰", amount: 100, date: "2025-01-01" },
+      { id: "1", emoji: "💰", amount: 100, date: "2025-01-01T12:00:00" },
     ];
     const expenses: Expense[] = [
-      { id: "1", emoji: "🍔", amount: 200, date: "2025-01-10" },
+      { id: "1", emoji: "🍔", amount: 200, date: "2025-01-10T12:00:00" },
     ];
     expect(calculateAvailable(incomes, [], expenses, JAN_2025)).toBe(-100);
   });
@@ -40,11 +40,11 @@ describe("calculateAvailable", () => {
 
   it("only counts expenses from the specified month", () => {
     const incomes: Income[] = [
-      { id: "1", emoji: "💰", amount: 1000, date: "2025-01-01" },
+      { id: "1", emoji: "💰", amount: 1000, date: "2025-01-01T12:00:00" },
     ];
     const expenses: Expense[] = [
-      { id: "1", emoji: "🍔", amount: 100, date: "2025-01-15" },
-      { id: "2", emoji: "🚗", amount: 200, date: "2025-02-10" },
+      { id: "1", emoji: "🍔", amount: 100, date: "2025-01-15T12:00:00" },
+      { id: "2", emoji: "🚗", amount: 200, date: "2025-02-10T12:00:00" },
     ];
     expect(calculateAvailable(incomes, [], expenses, JAN_2025)).toBe(900);
   });

@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text } from "react-native";
 import { useExpenseStore } from "../stores/useExpenseStore";
 import { ExpenseItem } from "./ExpenseItem";
 
@@ -9,7 +9,7 @@ export function ExpenseList() {
   const monthExpenses = expenses
     .filter((e) => {
       const d = new Date(e.date);
-      return d.getUTCFullYear() === currentMonth.year && d.getUTCMonth() + 1 === currentMonth.month;
+      return d.getFullYear() === currentMonth.year && d.getMonth() + 1 === currentMonth.month;
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -28,12 +28,9 @@ export function ExpenseList() {
         Expenses ({monthExpenses.length})
       </Text>
       <View className="rounded-2xl overflow-hidden">
-        <FlatList
-          data={monthExpenses}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <ExpenseItem expense={item} />}
-          scrollEnabled={false}
-        />
+        {monthExpenses.map((item) => (
+          <ExpenseItem key={item.id} expense={item} />
+        ))}
       </View>
     </View>
   );

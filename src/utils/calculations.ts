@@ -8,8 +8,7 @@ export function calculateAvailable(
 ): number {
   const monthExpenses = expenses.filter((e) => {
     const d = new Date(e.date);
-    // Use UTC to avoid timezone shifts with ISO date strings
-    return d.getUTCFullYear() === month.year && d.getUTCMonth() + 1 === month.month;
+    return d.getFullYear() === month.year && d.getMonth() + 1 === month.month;
   });
   const totalIncome = incomes.reduce((sum, i) => sum + i.amount, 0);
   const totalGoals = goals.reduce((sum, g) => sum + g.amount, 0);

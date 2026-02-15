@@ -15,7 +15,8 @@ export function BigNumber() {
         Available to Spend
       </Text>
       <Text
-        style={{ color, fontSize: 72, fontWeight: "800", lineHeight: 80 }}
+        className="text-[72px] font-extrabold leading-[80px]"
+        style={{ color }}
         numberOfLines={1}
         adjustsFontSizeToFit
       >

@@ -1,6 +1,6 @@
 import type { Month } from "../types";
 
-export const DEFAULT_EMOJIS = ["🍔", "🚗", "🏠", "🛒", "💊", "🎮"];
+export const DEFAULT_EMOJIS = ["🍔", "🚗", "🏠", "🛒", "💊"];
 
 export const COLORS = {
   green: "#22C55E",

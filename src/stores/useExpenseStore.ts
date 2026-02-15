@@ -12,7 +12,13 @@ interface ExpenseState {
   removeExpense: (id: string) => void;
   updateExpense: (id: string, updates: Partial<Expense>) => void;
   addIncome: (income: Income) => void;
+  removeIncome: (id: string) => void;
+  updateIncome: (id: string, updates: Partial<Income>) => void;
   addGoal: (goal: Goal) => void;
+  removeGoal: (id: string) => void;
+  updateGoal: (id: string, updates: Partial<Goal>) => void;
+  addCard: (card: Card) => void;
+  removeCard: (id: string) => void;
   setCurrentMonth: (month: Month) => void;
   getAvailableAmount: () => number;
   getMonthExpenses: () => Expense[];
@@ -60,8 +66,40 @@ export const useExpenseStore = create<ExpenseState>((set, get) => ({
   addIncome: (income) =>
     set((state) => ({ incomes: [...state.incomes, income] })),
 
+  removeIncome: (id) =>
+    set((state) => ({
+      incomes: state.incomes.filter((i) => i.id !== id),
+    })),
+
+  updateIncome: (id, updates) =>
+    set((state) => ({
+      incomes: state.incomes.map((i) =>
+        i.id === id ? { ...i, ...updates } : i
+      ),
+    })),
+
   addGoal: (goal) =>
     set((state) => ({ goals: [...state.goals, goal] })),
+
+  removeGoal: (id) =>
+    set((state) => ({
+      goals: state.goals.filter((g) => g.id !== id),
+    })),
+
+  updateGoal: (id, updates) =>
+    set((state) => ({
+      goals: state.goals.map((g) =>
+        g.id === id ? { ...g, ...updates } : g
+      ),
+    })),
+
+  addCard: (card) =>
+    set((state) => ({ cards: [...state.cards, card] })),
+
+  removeCard: (id) =>
+    set((state) => ({
+      cards: state.cards.filter((c) => c.id !== id),
+    })),
 
   setCurrentMonth: (month) => set({ currentMonth: month }),
 
@@ -76,8 +114,8 @@ export const useExpenseStore = create<ExpenseState>((set, get) => ({
       .filter((e) => {
         const d = new Date(e.date);
         return (
-          d.getUTCFullYear() === currentMonth.year &&
-          d.getUTCMonth() + 1 === currentMonth.month
+          d.getFullYear() === currentMonth.year &&
+          d.getMonth() + 1 === currentMonth.month
         );
       })
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
